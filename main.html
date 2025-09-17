@@ -1,26 +1,29 @@
+
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<meta charset=utf-8 />
-		<title>Return first and last name from a form</title>
-		<style type="text/css">
-			body {margin: 30px;}
-		</style> 
-	<link rel="stylesheet" href="styles.css">
+  <title>Form Login</title>
 </head>
-
 <body>
-	<form id="form1" onsubmit="getFormvalue()">
-		First name: <input type="text" name="fname"><br>
-		Last name: <input type="text" name="lname"><br>
-		<input type="submit" value="Submit">
-	</form>
-	
-    <script type="text/javascript" src="./script.js">
-</script>
+
+  <form onsubmit="getFormvalue(event)">
+    First Name: <input type="text" name="fname"><br><br>
+    Last Name: <input type="text" name="lname"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    function getFormvalue(event) {
+      event.preventDefault(); // Prevent form from reloading the page
+      
+      // Get form inputs using the event target (the form element)
+      const form = event.target;
+      const firstName = form.fname.value.trim();
+      const lastName = form.lname.value.trim();
+
+      alert(firstName + " " + lastName);
+    }
+  </script>
 
 </body>
-
 </html>
